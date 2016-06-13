@@ -332,6 +332,9 @@ module.exports = {
                 if (!res.get('Content-Type')) {
                     res.set('Content-Type', 'application/json'); // set default content-type
                 }
+                if (!res.get('Access-Control-Allow-Origin')) {
+                    res.set('Access-Control-Allow-Origin', '*'); // set default access-control-allow-origin
+                }
                 res.status(ramlRes.code).send(ramlRes.data);
             });
         } catch (e) {
